@@ -1,21 +1,28 @@
+import GreetingCard from '@/src/components/GreetingCard';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tela Principal (Home)</Text>
-      <Text>Bem-vindo ao seu aplicativo!</Text>
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <GreetingCard
+        title="Oi Ju!"
+        subtitle="Seu bem-estar é prioridade, não luxo."
+        style={styles.card}
+      />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    paddingTop: 24,
+    paddingHorizontal: 16,
+    paddingBottom: 120,
+    gap: 16,
   },
+  card: { borderRadius: 16 },
+  content: { alignItems: 'center', paddingTop: 16 },
   title: {
     fontSize: 24,
     fontWeight: 'bold',

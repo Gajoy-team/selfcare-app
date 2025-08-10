@@ -28,5 +28,5 @@ const styles = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
   },
-  label: { marginTop: 8, color: colors.text, fontWeight: '600', fontSize: 16 },
+  label: { marginTop: 8, color: colors.text, fontWeight: '600', fontSize: 16, fontFamily: "Poppins_400Regular"},
 });

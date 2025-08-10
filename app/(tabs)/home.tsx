@@ -59,7 +59,7 @@ export default function HomeScreen() {
         />
         <View style={{ height: 16 }} />
         <View style={styles.progressRow}>
-          <Text style={styles.progressLabel}>Humor Bom</Text>
+          <Text style={styles.progressLabel}>Humor Bom </Text>
           <Text style={styles.progressValue}>3.8/5</Text>
         </View>
         <View style={styles.progressBarBg}>
@@ -95,11 +95,21 @@ const styles = StyleSheet.create({
   card: { borderRadius: 16 },
   actionsRow: { flexDirection: 'row' },
   progressRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  progressLabel: { fontSize: 14, color: colors.text },
-  progressValue: { fontSize: 12, color: colors.primary, fontWeight: '700' },
+  progressLabel: { fontSize: 14, color: colors.text, fontFamily: "Poppins_400Regular" },
+  progressValue: { fontSize: 12, color: colors.primary, fontFamily: "Poppins_600SemiBold" },
   progressBarBg: { height: 6, borderRadius: 6, backgroundColor: '#FFE4EB', overflow: 'hidden' },
   progressBarFill: { height: '100%', backgroundColor: colors.primary, borderRadius: 6 },
-  moreLink: { alignSelf: 'flex-end', marginTop: 12, color: colors.primary, fontWeight: '600', fontSize: 12 },
+  moreLink: { 
+    alignSelf: 'flex-end', 
+    marginTop: 12, 
+    color: colors.primary, 
+    fontWeight: '600', 
+    fontSize: 12, 
+    fontFamily: "Poppins_600SemiBold", 
+    textDecorationLine: 'underline',
+    textDecorationColor: colors.primary,
+    textDecorationStyle: 'solid',
+  },
   badge: {
     position: 'absolute',
     right: -2,

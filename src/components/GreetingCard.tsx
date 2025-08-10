@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     color: 'rgba(255,255,255,0.9)',
-    fontSize: 14,
+    fontSize: 18,
     fontWeight: '500',
   },
 });

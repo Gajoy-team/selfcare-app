@@ -25,6 +25,6 @@ const styles = StyleSheet.create({
     borderColor: colors.primary,
     backgroundColor: '#ffe4eb',
   },
-  label: { color: colors.text, fontSize: 14 },
+  label: { color: colors.text, fontSize: 14, fontFamily: "Poppins_400Regular" },
   labelDone: { color: colors.textMuted, textDecorationLine: 'line-through' },
 });

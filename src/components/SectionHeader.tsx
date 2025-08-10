@@ -51,7 +51,7 @@ export default function SectionHeader({ title, subtitle, actionLabel, onPress, s
 const styles = StyleSheet.create({
   container: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   rowLeft: { flexDirection: 'row', alignItems: 'center' },
-  title: { fontSize: 16, fontWeight: '700', color: colors.text },
-  subtitle: { fontSize: 12, color: colors.textMuted, marginTop: 2 },
+  title: { fontSize: 16, color: colors.text, fontFamily: "Poppins_600SemiBold" },
+  subtitle: { fontSize: 12, color: colors.textMuted, marginTop: 2, fontFamily: "Poppins_400Regular" },
   action: { fontSize: 12, color: colors.primary, fontWeight: '600' },
 });

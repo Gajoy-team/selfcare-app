@@ -5,7 +5,7 @@ const colors = {
     background: "#FFF7F9",
     card: "#FFFFFF",
     border: "#F1E6EA",
-    text: "#1F1F1F",
+    text: "#484848",
     textMuted: "#7A7A7A",
 }
 

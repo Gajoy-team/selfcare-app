@@ -19,13 +19,18 @@ export default function HomeScreen() {
       />
 
       <SectionCard>
-        <SectionHeader title="Tarefas de Hoje" subtitle="Pequenos passos para um grande progresso" actionLabel="ver mais" />
+        <SectionHeader
+          title="Tarefas de Hoje"
+          subtitle="Pequenos passos para um grande progresso"
+          leftIcon={<MaterialCommunityIcons name="clipboard-list-outline" size={30} color={colors.primary} />}
+        />
         <View style={{ height: 12 }} />
-        <TaskItem label="Passar protetor solar" />
+        <TaskItem label="Passar protetor solar " />
         <View style={{ height: 10 }} />
-        <TaskItem label="Lavar rosto (manhã)" />
+        <TaskItem label="Lavar rosto (manhã) " />
         <View style={{ height: 10 }} />
-        <TaskItem label="Hidratação nas pontas" />
+        <TaskItem label="Hidratação nas pontas " />
+        <Text style={styles.moreLink}>ver mais</Text>
       </SectionCard>
 
       <View style={styles.actionsRow}>
@@ -75,4 +80,5 @@ const styles = StyleSheet.create({
   progressValue: { fontSize: 12, color: colors.primary, fontWeight: '700' },
   progressBarBg: { height: 6, borderRadius: 6, backgroundColor: '#FFE4EB', overflow: 'hidden' },
   progressBarFill: { height: '100%', backgroundColor: colors.primary, borderRadius: 6 },
+  moreLink: { alignSelf: 'flex-end', marginTop: 12, color: colors.primary, fontWeight: '600', fontSize: 12 },
 });

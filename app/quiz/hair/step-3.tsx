@@ -1,3 +1,5 @@
+import QuizHeader from '@/src/components/quiz/QuizHeader';
+import QuizProgressBar from '@/src/components/quiz/QuizProgressBar';
 import colors from '@/src/styles/colors';
 import { fonts } from '@/src/styles/fonts';
 import { useRouter } from 'expo-router';
@@ -5,11 +7,21 @@ import React, { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 const OPTIONS = [
-  { id: 'diario', label: 'Diariamente' },
-  { id: 'dia-sim-nao', label: 'Dia sim, dia não' },
-  { id: 'duas-vezes', label: '2x por semana' },
-  { id: 'uma-vez', label: '1x por semana' },
-  { id: 'menos', label: 'Menos de 1x por semana' },
+  { 
+    id: 'baixa', 
+    label: 'Baixa Porosidade',
+    description: "Baixa Porosidade: O fio boia. (Dificuldade de absorver umidade)"
+  },
+  { 
+    id: 'media', 
+    label: 'Média Porosidade',
+    description: 'O fio fica no meio do copo. (Absorção ideal)'
+  },
+  { 
+    id: 'alta', 
+    label: 'Alta Porosidade',
+    description: 'O fio afunda rapidamente. (Absorve e perde umidade muito fácil, tende a ter frizz)'
+  },
 ];
 
 export default function HairQuizStep3() {
@@ -28,18 +40,17 @@ export default function HairQuizStep3() {
 
   return (
     <View style={styles.wrapper}>
-      <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.headerRow}>
-          <Text style={styles.headerTitle}>Rotina de Lavagem</Text>
-          <Text style={styles.headerStep}>3/5</Text>
-        </View>
-        <View style={styles.progressBg}>
-          <View style={[styles.progressFill, { width: '60%' }]} />
-        </View>
+      <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+        <QuizHeader title="Porosidade" currentStep={3} totalSteps={5} />
+        <QuizProgressBar currentStep={3} totalSteps={5} />
 
         <View style={styles.questionBox}>
-          <Text style={styles.questionText}>Com que frequência você lava o cabelo?</Text>
+          <Text style={styles.questionText}>Seu cabelo absorve água e produtos facilmente?</Text>
         </View>
+
+        <Text style={styles.description}>
+          Faça o teste do copo d'água: pegue um fio limpo e seco e coloque em um copo com água. O que acontece?
+        </Text>
 
         <View style={styles.optionsList}>
           {OPTIONS.map((option) => (
@@ -48,8 +59,11 @@ export default function HairQuizStep3() {
               style={[styles.optionCard, selected === option.id && styles.optionCardSelected]}
               onPress={() => setSelected(option.id)}
             >
-              <Text style={[styles.optionText, selected === option.id && styles.optionTextSelected]}>
+              <Text style={[styles.optionLabel, selected === option.id && styles.optionLabelSelected]}>
                 {option.label}
+              </Text>
+              <Text style={[styles.optionDescription, selected === option.id && styles.optionDescriptionSelected]}>
+                {option.description}
               </Text>
             </Pressable>
           ))}
@@ -72,38 +86,65 @@ export default function HairQuizStep3() {
 const styles = StyleSheet.create({
   wrapper: { flex: 1 },
   container: { padding: 16, paddingBottom: 24 },
-  headerRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  headerTitle: { color: colors.primary, fontWeight: '700', fontFamily: fonts.bold },
-  headerStep: { color: colors.primary, fontFamily: fonts.regular },
-  progressBg: { height: 6, backgroundColor: '#FFE4EB', borderRadius: 6, marginTop: 8 },
-  progressFill: { height: '100%', backgroundColor: colors.primary, borderRadius: 6 },
-  questionBox: { marginTop: 16, padding: 20, backgroundColor: '#FF9BB0', borderRadius: 12 },
-  questionText: { color: 'white', textAlign: 'center', fontWeight: '700', fontSize: 16, fontFamily: fonts.bold },
-  optionsList: { marginTop: 20, gap: 12, marginBottom: 32 },
+  questionBox: { 
+    marginTop: 24, 
+    backgroundColor: '#FF9BB0', 
+    borderRadius: 12,
+    padding: 20,
+    marginBottom: 16,
+  },
+  questionText: { 
+    color: 'white', 
+    textAlign: 'center', 
+    fontWeight: '700', 
+    fontSize: 18, 
+    fontFamily: fonts.bold 
+  },
+  description: { 
+    fontSize: 14, 
+    color: '#666', 
+    textAlign: 'center',
+    fontFamily: fonts.regular,
+    marginBottom: 24,
+    paddingHorizontal: 16,
+  },
+  optionsList: { gap: 12, marginBottom: 32 },
   optionCard: {
     backgroundColor: 'white',
     borderRadius: 12,
     borderWidth: 1.5,
     borderColor: '#FFB3C1',
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-    alignItems: 'center',
+    padding: 16,
   },
-  optionCardSelected: { borderColor: colors.primary, borderWidth: 2 },
-  optionText: { fontSize: 16, fontWeight: '600', color: '#9a5171', fontFamily: fonts.semiBold },
-  optionTextSelected: { color: colors.primary },
+  optionCardSelected: { borderColor: colors.primary, borderWidth: 2, backgroundColor: '#FFF0F3' },
+  optionLabel: { 
+    fontSize: 16, 
+    fontWeight: '600', 
+    color: '#9a5171', 
+    fontFamily: fonts.semiBold,
+    textAlign: 'center',
+    marginBottom: 4,
+  },
+  optionLabelSelected: { color: colors.primary },
+  optionDescription: { 
+    fontSize: 14, 
+    color: '#666', 
+    fontFamily: fonts.regular,
+    textAlign: 'center',
+  },
+  optionDescriptionSelected: { color: colors.primary },
   buttonRow: { flexDirection: 'row', gap: 12, paddingHorizontal: 16 },
   backButton: { 
     flex: 1,
-    backgroundColor: '#f8f9fa', 
+    backgroundColor: 'white', 
     borderRadius: 24, 
     paddingVertical: 16, 
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#e9ecef',
+    borderWidth: 1.5,
+    borderColor: colors.primary,
   },
   backButtonText: { 
-    color: '#6c757d', 
+    color: colors.primary, 
     fontWeight: '600',
     fontSize: 16,
     fontFamily: fonts.semiBold,

@@ -1,3 +1,5 @@
+import QuizHeader from '@/src/components/quiz/QuizHeader';
+import QuizProgressBar from '@/src/components/quiz/QuizProgressBar';
 import colors from '@/src/styles/colors';
 import { fonts } from '@/src/styles/fonts';
 import { useRouter } from 'expo-router';
@@ -39,13 +41,8 @@ export default function HairQuizStep2() {
   return (
     <View style={styles.wrapper}>
       <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.headerRow}>
-          <Text style={styles.headerTitle}>Entendendo a espessura</Text>
-          <Text style={styles.headerStep}>2/5 </Text>
-        </View>
-        <View style={styles.progressBg}>
-          <View style={[styles.progressFill, { width: '40%' }]} />
-        </View>
+        <QuizHeader title="Entendendo a espessura" currentStep={2} totalSteps={5} />
+        <QuizProgressBar currentStep={2} totalSteps={5} />
 
         <View style={styles.questionBox}>
           <Text style={styles.questionText}>Qual a espessura do seu cabelo?</Text>
@@ -87,11 +84,6 @@ export default function HairQuizStep2() {
 const styles = StyleSheet.create({
   wrapper: { flex: 1 },
   container: { padding: 16, paddingBottom: 24 },
-  headerRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  headerTitle: { color: colors.primary, fontWeight: '700', fontSize: 18, fontFamily: fonts.bold },
-  headerStep: { color: colors.primary, fontSize: 16, fontFamily: fonts.regular },
-  progressBg: { height: 6, backgroundColor: '#FFE4EB', borderRadius: 6, marginTop: 8 },
-  progressFill: { height: '100%', backgroundColor: colors.primary, borderRadius: 6 },
   questionBox: { marginTop: 24, padding: 24, backgroundColor: colors.primary, borderRadius: 16 },
   questionText: { color: 'white', textAlign: 'center', fontWeight: '700', fontSize: 18, fontFamily: fonts.bold },
   optionsList: { marginTop: 32, gap: 16, marginBottom: 40 },

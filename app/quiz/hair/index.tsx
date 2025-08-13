@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 24, backgroundColor: '#FFF7F9' },
   title: { fontSize: 22, textAlign: 'center', color: '#4A4A4A', fontWeight: '800' },
   subtitle: { marginTop: 10, textAlign: 'center', color: '#8A8A8A' },
-  image: { width: '90%', height: 260, marginTop: 24 },
+  image: { width: '90%', height: 360, marginTop: 24 },
   cta: { marginTop: 24, alignSelf: 'stretch', backgroundColor: colors.primary, borderRadius: 22, paddingVertical: 14, alignItems: 'center' },
   ctaText: { color: 'white', fontWeight: '700' },
 });

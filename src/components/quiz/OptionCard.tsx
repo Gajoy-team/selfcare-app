@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center',
     overflow: 'hidden',
-    height: 100
+    minHeight: 100
   },
   imageCard: {
     width: '48%',
